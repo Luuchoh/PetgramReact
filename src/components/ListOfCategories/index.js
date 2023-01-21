@@ -1,18 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ListOfCategoriesSkeleton } from '../Skeletons/ListOfCategorySkeleton'
+
 import { Category } from '../Category'
+
 import { Item, List } from './style'
-import db from '../../../api/db.json'
+
+const useCategoriesData = () => {
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('http://localhost:3500/categories')
+      .then(res => res.json())
+      .then(res => {
+        setCategories(res)
+        setLoading(false)
+      })
+  }, [])
+  return { categories, loading }
+}
 
 export const ListOfCategories = () => {
-  return (
-    <List>
+  const [showFixed, setShowFixed] = useState(false)
+  const { categories, loading } = useCategoriesData()
+
+  useEffect(() => {
+    const onScroll = (e) => {
+      const newShowFixed = window.scrollY > 200
+      showFixed !== newShowFixed && setShowFixed(newShowFixed)
+    }
+
+    document.addEventListener('scroll', onScroll)
+
+    return () => document.removeEventListener('scroll', onScroll)
+  }, [showFixed])
+
+  const renderList = (fixed) => (
+    <List fixed={fixed}>
       {
-        db.categories.map((category) => (
-          <Item key={category.id}>
-            <Category {...category} />
-          </Item>
-        ))
+        loading
+          ? <ListOfCategoriesSkeleton />
+          : categories.map((category) => (
+            <Item key={category.id}>
+              <Category {...category} />
+            </Item>
+          ))
       }
     </List>
+  )
+
+  return (
+    <>
+      {renderList()}
+      {showFixed && renderList(true)}
+    </>
   )
 }
