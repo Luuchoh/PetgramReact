@@ -1,25 +1,16 @@
 import express from 'express'
 import cors from 'cors'
-import { ApolloServer } from 'apollo-server-express'
+import pkg from 'body-parser';
+import { ApolloServer } from '@apollo/server'
+import { expressMiddleware } from '@apollo/server/express4';
 import { expressjwt } from 'express-jwt'
 import schema from './schema.js'
 import data from './db.json' assert { type: "json" }
-import require from './adapter.js'
-// import { createRequire } from 'node:module'
-// const { categories } = createRequire('./db.json')
-
-// const express = require('express')
-// const cors = require('cors')
-// const { ApolloServer } = require('apollo-server-express')
-// const jwt = require('express-jwt')
-// const { resolvers, typeDefs } = require('./schema')
-// const { categories } = require.resolve('./db.json')
 
 // this is not secure! this is for dev purposes
 process.env.JWT_SECRET = process.env.JWT_SECRET || 'somereallylongsecretkey'
 
 const PORT = process.env.PORT || 3500
-console.log(PORT)
 const app = express()
 
 app.use(cors())
@@ -31,7 +22,7 @@ const auth = expressjwt({
   algorithms: ["HS256"]
 })
 
-// require('./adapter.js')
+import ('./adapter.js')
 
 const server = new ApolloServer({
   introspection: true, // do this only for dev purposes
@@ -54,7 +45,17 @@ const errorHandler = (err, req, res, next) => {
   res.status(status).json(err)
 }
 app.use(errorHandler)
-server.start({ app, path: '/graphql' })
+// await startStandaloneServer(server)
+await server.start()
+
+app.use(
+  '/graphql',
+  cors(),
+  pkg.json(),
+  expressMiddleware(server, {
+    context: async ({ req }) => ({ token: req.headers.token }),
+  }),
+);
 
 app.get('/categories', function (req, res) {
   res.send(data.categories)
