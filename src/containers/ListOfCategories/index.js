@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { ListOfCategoriesSkeleton } from '../Skeletons/ListOfCategorySkeleton'
 
-import { Category } from '../Category'
+import { Category } from '../../components/Category'
+import { ListOfCategoriesSkeleton } from '../../components/Skeletons/ListOfCategorySkeleton'
 
 import { Item, List } from './style'
 

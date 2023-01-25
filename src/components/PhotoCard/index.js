@@ -1,31 +1,36 @@
 import React from 'react'
-import { Article, Button, Img, ImgWrapper } from './style'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
+
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useNwarScreen } from '../../hooks/useNearScreen'
+import { useMutationToggleLike } from '../../hooks/usePhotos'
+import LikeButton from '../LikeButton'
+import { Article, Img, ImgWrapper } from './style'
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_fishes.jpg'
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const [show, ref] = useNwarScreen()
+  const [likeAnonymousPhoto] = useMutationToggleLike()
   const key = `like-${id}`
   const [liked, setLiked] = useLocalStorage(key, false)
 
-  const Icon = liked ? AiFillHeart : AiOutlineHeart
+  const handleLikeClick = () => {
+    !liked && likeAnonymousPhoto({ variables: { input: { id } } })
+    setLiked(!liked)
+  }
 
   return (
     <Article ref={ref}>
       {
         show &&
           <>
-            <a href={`/detail/${id}`}>
+            <Link to={`/detailPhoto/${id}`}>
               <ImgWrapper>
                 <Img src={src} />
               </ImgWrapper>
-            </a>
-            <Button onClick={() => setLiked(!liked)}>
-              <Icon size='32px' /> {likes} likes!
-            </Button>
+            </Link>
+            <LikeButton liked={liked} likes={likes} onClick={handleLikeClick} />
           </>
       }
     </Article>

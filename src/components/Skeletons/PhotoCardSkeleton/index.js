@@ -3,7 +3,7 @@ import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { Button, Img, ImgWrapper } from './style'
 
-export const ListOfPhotoCardSkeleton = () => {
+export const PhotoCardSkeleton = () => {
   return (
     <li>
       <ImgWrapper>
