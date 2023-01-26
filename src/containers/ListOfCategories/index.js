@@ -43,7 +43,7 @@ export const ListOfCategories = () => {
           ? <ListOfCategoriesSkeleton />
           : categories.map((category) => (
             <Item key={category.id}>
-              <Category {...category} />
+              <Category {...category} path={category.id} />
             </Item>
           ))
       }
