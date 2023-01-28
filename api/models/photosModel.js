@@ -23,7 +23,6 @@ async function removeLike ({ id }) {
 }
 
 function list ({ categoryId, ids, favs = [] }) {
-  console.log(categoryId)
   let photos
   if (categoryId && categoryId !== 'all') {
     photos = db.data.photos.filter(photo => photo.categoryId === +categoryId)

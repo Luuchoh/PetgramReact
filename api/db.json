@@ -1,26 +1,28 @@
 {
   "users": [
     {
-      "id": "7ec3d2f0-641e-11e9-9d5d-1b8ad05606d1",
-      "password": "$2b$10$RNCVsIxNLKP8Gl.BPoedXuwGczl527UfsLDYcb.9V856ng4kxULrS",
+      "id": "53b64b90-9ed2-11ed-a31d-ef0ab302ed89",
+      "password": "$2b$10$5Z3Nayd.AzjJBM36Lsq3jO/xHp9qpa0qzclw4a5yfXQxWMdaN59XC",
       "favs": [
-        "18",
-        "1"
+        "0",
+        "1",
+        "15",
+        "7"
       ],
-      "avatar": "https://gravatar.com/avatar/8e04be7dab487d77f16969fd3e0d45d4",
-      "email": "miduga@gmail.com"
+      "avatar": "https://gravatar.com/avatar/19ff31020abd6906f2f975a3e77e07c7",
+      "email": "luis@gmail.com",
+      "name": "Luis Humberto Hernandez Lavacude"
     },
     {
-      "id": "a882e1d0-6428-11e9-9b1f-8980b7d40890",
-      "password": "$2b$10$BffxqFIacmPkKr2VZgyu7.r0nMmCMbL3nNw3CdWLpKVSKWkUAQGJS",
+      "id": "66b82ba0-9ed2-11ed-a31d-ef0ab302ed89",
+      "password": "$2b$10$XYvBrsQ3xruQAwH.MyDw9eNruM.pp2LpsnJxFYbB4SKLKWHgSC966",
       "favs": [
-        "18",
-        "16",
-        "1",
+        "0",
         "15"
       ],
-      "avatar": "https://gravatar.com/avatar/3bccd59be0a57b39bdd9b2760702795e",
-      "email": "dani@gmail.com"
+      "avatar": "https://gravatar.com/avatar/2fb05feb0d1988eccf2602569a1da5b4",
+      "email": "luuchoh@gmail.com",
+      "name": "Luuchoh"
     }
   ],
   "categories": [
@@ -73,21 +75,21 @@
       "categoryId": 2,
       "src": "https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png",
       "userId": 100,
-      "likes": 7
+      "likes": 9
     },
     {
       "id": 1,
       "categoryId": 1,
       "src": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       "userId": 1,
-      "likes": 45
+      "likes": 46
     },
     {
       "id": 15,
       "categoryId": 4,
       "src": "https://images.unsplash.com/photo-1520561805070-83c413349512?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       "userId": 1,
-      "likes": 1
+      "likes": 3
     },
     {
       "id": 18,
@@ -108,7 +110,7 @@
       "categoryId": 2,
       "src": "https://images.unsplash.com/photo-1508280756091-9bdd7ef1f463?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       "userId": 1,
-      "likes": 40
+      "likes": 41
     },
     {
       "id": 12,

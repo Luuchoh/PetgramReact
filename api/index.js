@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import pkg from 'body-parser';
+import bodyParser from 'body-parser';
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4';
 import { expressjwt } from 'express-jwt'
@@ -46,14 +46,15 @@ const errorHandler = (err, req, res, next) => {
 }
 app.use(errorHandler)
 // await startStandaloneServer(server)
+
 await server.start()
 
 app.use(
   '/graphql',
   cors(),
-  pkg.json(),
+  bodyParser.json(),
   expressMiddleware(server, {
-    context: async ({ req }) => ({ token: req.headers.token }),
+    context: async ({ req }) => ({ token: req.headers.authorization }),
   }),
 );
 

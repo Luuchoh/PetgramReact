@@ -1,11 +1,10 @@
 import userModel from './models/userModel.js'
 import categoriesModel from './models/categoriesModel.js'
 import photosModel from './models/photosModel.js'
-import { gql } from 'apollo-server-express'
 import jsonwebtoken from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
-const typeDefs = gql`
+const typeDefs = `
   type User {
     id: ID
     avatar: String
@@ -32,6 +31,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    user: [User]
     favs: [Photo]
     categories: [Category]
     photos(categoryId: ID): [Photo],
@@ -42,7 +42,9 @@ const typeDefs = gql`
     id: ID!
   }
 
+
   input UserCredentials {
+    name: String
     email: String!
     password: String!
   }
@@ -92,7 +94,10 @@ const resolvers = {
       return actualPhoto
     },
     likePhoto: (_, { input }, context) => {
-      const { id: userId } = checkIsUserLogged(context)
+      let token = context.token.replace('Bearer ', '')
+      token = jsonwebtoken.decode(token)
+
+      const { id: userId } = checkIsUserLogged(token)
 
       // find the photo by id and throw an error if it doesn't exist
       const { id: photoId } = input
@@ -113,7 +118,7 @@ const resolvers = {
       }
 
       // get favs from user before exiting
-      const favs = tryGetFavsFromUserLogged(context)
+      const favs = tryGetFavsFromUserLogged(token)
       // get the updated photos model
       const actualPhoto = photosModel.find({ id: photoId, favs })
 
@@ -124,7 +129,7 @@ const resolvers = {
       // add 1 second of delay in order to see loading stuff
       await new Promise(resolve => setTimeout(resolve, 1000))
 
-      const { email, password } = input
+      const { name, email, password } = input
 
       const user = await userModel.find({ email })
 
@@ -133,6 +138,7 @@ const resolvers = {
       }
 
       const newUser = await userModel.create({
+        name,
         email,
         password
       })
@@ -172,8 +178,17 @@ const resolvers = {
     }
   },
   Query: {
+    user (_, __, context) {
+      let token = context.token.replace('Bearer ', '')
+      token = jsonwebtoken.decode(token)
+      const { email } = checkIsUserLogged(token)
+      const user = userModel.find({ email })
+      return [user]
+    },
     favs (_, __, context) {
-      const { email } = checkIsUserLogged(context)
+      let token = context.token.replace('Bearer ', '')
+      token = jsonwebtoken.decode(token)
+      const { email } = checkIsUserLogged(token)
       const { favs } = userModel.find({ email })
       return photosModel.list({ ids: favs, favs })
     },
@@ -181,11 +196,15 @@ const resolvers = {
       return categoriesModel.list()
     },
     photo (_, { id }, context) {
-      const favs = tryGetFavsFromUserLogged(context)
+      let token = context.token.replace('Bearer ', '')
+      token = jsonwebtoken.decode(token)
+      const favs = tryGetFavsFromUserLogged(token)
       return photosModel.find({ id, favs })
     },
     photos (_, { categoryId }, context) {
-      const favs = tryGetFavsFromUserLogged(context)
+      let token = context.token.replace('Bearer ', '')
+      token = jsonwebtoken.decode(token)
+      const favs = tryGetFavsFromUserLogged(token)
       return photosModel.list({ categoryId, favs })
     }
   }
