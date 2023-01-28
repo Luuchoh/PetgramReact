@@ -1,8 +1,11 @@
 import React from 'react'
+import UserProfile from '../../containers/UserProfile'
 
 const User = () => {
   return (
-    <div>User</div>
+    <>
+      <UserProfile />
+    </>
   )
 }
 

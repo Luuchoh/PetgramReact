@@ -1,23 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { AiOutlineQuestionCircle } from 'react-icons/ai'
 
-import { useLocalStorage } from '../../hooks/useLocalStorage'
-import { useNwarScreen } from '../../hooks/useNearScreen'
+import { useNearScreen } from '../../hooks/useNearScreen'
 import { useMutationToggleLike } from '../../hooks/usePhotos'
 import LikeButton from '../LikeButton'
-import { Article, Img, ImgWrapper } from './style'
+import { Article, ButtonsWrapper, ContainerToggle, Img, ImgWrapper, Toggle, Link as LinkT } from './style'
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_fishes.jpg'
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
-  const [show, ref] = useNwarScreen()
-  const [likeAnonymousPhoto] = useMutationToggleLike()
-  const key = `like-${id}`
-  const [liked, setLiked] = useLocalStorage(key, false)
+export const PhotoCard = ({ id, likes = 0, liked, src = DEFAULT_IMAGE }) => {
+  const [show, ref] = useNearScreen()
+  const { likePhoto, error } = useMutationToggleLike()
 
   const handleLikeClick = () => {
-    !liked && likeAnonymousPhoto({ variables: { input: { id } } })
-    setLiked(!liked)
+    likePhoto({ variables: { input: { id } } })
   }
 
   return (
@@ -31,6 +28,19 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
               </ImgWrapper>
             </Link>
             <LikeButton liked={liked} likes={likes} onClick={handleLikeClick} />
+            {
+              error &&
+                <ContainerToggle>
+                  <Toggle>
+                    <AiOutlineQuestionCircle />
+                    <h3>Debes Loguearte para dar me gusta</h3>
+                    <ButtonsWrapper>
+                      <LinkT to='/user'>Iniciar Sesión</LinkT>
+                      <LinkT to='/' reloadDocument>Cancelar</LinkT>
+                    </ButtonsWrapper>
+                  </Toggle>
+                </ContainerToggle>
+            }
           </>
       }
     </Article>

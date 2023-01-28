@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export const useNwarScreen = () => {
+export const useNearScreen = () => {
   const [show, setShow] = useState(false)
   const ref = useRef(null)
   useEffect(() => {
