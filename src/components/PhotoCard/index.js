@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineQuestionCircle } from 'react-icons/ai'
 
@@ -17,6 +17,14 @@ export const PhotoCard = ({ id, likes = 0, liked, src = DEFAULT_IMAGE }) => {
     likePhoto({ variables: { input: { id } } })
   }
 
+  const scroll = !!error
+  useEffect(() => {
+    if (scroll) {
+      window.addEventListener('scroll', () => {
+        window.scrollTo(0, 0)
+      })
+    }
+  }, [scroll])
   return (
     <Article ref={ref}>
       {

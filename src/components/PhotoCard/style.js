@@ -25,9 +25,10 @@ const Img = styled.img`
 `
 const ContainerToggle = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: absolute;
   top: 0;
+  left: 0;
   display: grid;
   place-items: center;
   z-index: 1001;

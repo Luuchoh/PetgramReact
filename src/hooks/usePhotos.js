@@ -49,7 +49,7 @@ const GET_FAVORITES_PHOTOS = gql`
   }
 `
 export const useGetFavoritesPhoto = () => {
-  const { loading, data, error } = useQuery(GET_FAVORITES_PHOTOS, { fetchPolicy:'cache-and-network' })
+  const { loading, data, error } = useQuery(GET_FAVORITES_PHOTOS, { fetchPolicy: 'cache-and-network' })
   return { loading, data, error }
 }
 
