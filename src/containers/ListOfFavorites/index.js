@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { useGetFavoritesPhoto } from '../../hooks/usePhotos'
-import FavGrid from '../../components/FavGrid'
-import { Grid, Title } from './style'
-import FavGridSkeleton from '../../components/Skeletons/FavGridSkeleton'
+import { useGetFavoritesPhoto } from '@hooks/usePhotos'
+import FavGrid from '@components/FavGrid'
+import FavGridSkeleton from '@components/Skeletons/FavGridSkeleton'
+import { Grid, Title } from '@containers/ListOfFavorites/style'
 
 const ListOfFavorites = () => {
   const { data, loading } = useGetFavoritesPhoto()

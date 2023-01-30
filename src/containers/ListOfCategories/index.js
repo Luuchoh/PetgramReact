@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import { Category } from '../../components/Category'
-import { ListOfCategoriesSkeleton } from '../../components/Skeletons/ListOfCategorySkeleton'
-
-import { Item, List } from './style'
+import { Category } from '@components/Category'
+import { ListOfCategoriesSkeleton } from '@components/Skeletons/ListOfCategorySkeleton'
+import { Item, List } from '@containers/ListOfCategories/style'
 
 const useCategoriesData = () => {
   const [categories, setCategories] = useState([])

@@ -1,6 +1,7 @@
 import React from 'react'
-import Helmet from '../../components/Helmet'
-import UserProfile from '../../containers/UserProfile'
+
+import Helmet from '@components/Helmet'
+import UserProfile from '@containers/UserProfile'
 
 const User = () => {
   return (

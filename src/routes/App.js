@@ -1,16 +1,15 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import { PrivateRoute } from './PrivateRoute'
-// import Layout from '../containers/Layout'
-import GlobalStyles from '../styles/globalStyles'
+import { PrivateRoute } from '@routes/PrivateRoute'
+import GlobalStyles from '@styles/globalStyles'
 
-const Layout = React.lazy(() => import('../containers/Layout'))
-const Home = React.lazy(() => import('../views/Home'))
-const DetailPhoto = React.lazy(() => import('../views/DetailPhoto'))
-const NotRegisteredUser = React.lazy(() => import('../views/NotRegisteredUser'))
-const Favs = React.lazy(() => import('../views/Favs'))
-const User = React.lazy(() => import('../views/User'))
+const Layout = React.lazy(() => import('@containers/Layout'))
+const Home = React.lazy(() => import('@views/Home'))
+const DetailPhoto = React.lazy(() => import('@views/DetailPhoto'))
+const NotRegisteredUser = React.lazy(() => import('@views/NotRegisteredUser'))
+const Favs = React.lazy(() => import('@views/Favs'))
+const User = React.lazy(() => import('@views/User'))
 
 export default function App () {
   return (

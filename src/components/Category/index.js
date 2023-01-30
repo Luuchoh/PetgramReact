@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, Image } from './style'
+
+import { Link, Image } from '@components/Category/style'
 
 const DEFAULT_IMAGE = ' https://i.imgur.com/dJa0Hpl.jpg'
 

@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import { AppContext } from '../../context/AppProvider'
-import useForm from '../../hooks/useForm'
-import { Button, Container, Error, Form, Input, Paragraph, Svg, Title } from './style'
+
+import { AppContext } from '@context/AppProvider'
+import useForm from '@hooks/useForm'
+import { Button, Container, Error, Form, Input, Paragraph, Svg, Title } from '@containers/UserForm/style'
 
 const UserForm = ({ onSubmit, data, error, loading }) => {
   const initialState = {
