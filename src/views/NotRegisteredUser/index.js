@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import Helmet from '../../components/Helmet'
 import UserForm from '../../containers/UserForm'
 import { AppContext } from '../../context/AppProvider'
 import { useMutationLogin, useMutationRegister } from '../../hooks/useUsers'
@@ -19,6 +20,7 @@ const NotRegisteredUser = () => {
 
   return (
     <>
+      <Helmet title={stateForm ? 'Rrgistro' : 'Inicio Sesion'} />
       {
         stateForm
           ? <UserForm onSubmit={handleSubmit} data={signup?.signup} error={errorRegister} loading={loadingRegister} />

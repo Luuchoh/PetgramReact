@@ -20,6 +20,7 @@ const Paragraph = styled.p`
     color: #2057F4;
 
     &:hover {
+      cursor: pointer;
       color: #4774F4;
     }
   }

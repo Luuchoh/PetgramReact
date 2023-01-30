@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useGetSinglePhoto } from '../../hooks/usePhotos'
 import { PhotoCard } from '../../components/PhotoCard'
 import { PhotoCardSkeleton } from '../../components/Skeletons/PhotoCardSkeleton'
+import Helmet from '../../components/Helmet'
 
 const DetailPhoto = () => {
   const { id } = useParams()
@@ -11,6 +12,7 @@ const DetailPhoto = () => {
 
   return (
     <ul>
+      <Helmet title='Detalle' />
       {
         loading
           ? <PhotoCardSkeleton />
