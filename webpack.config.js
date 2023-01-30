@@ -5,9 +5,11 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
+  stats: { warnings: false },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: 'assets/[hash][ext][query]'
   },
   resolve: {
     extensions: ['.js'],
@@ -22,6 +24,7 @@ module.exports = {
       '@views': path.resolve(__dirname, 'src/views/')
     }
   },
+  mode: ' production',
   module: {
     rules: [
       {

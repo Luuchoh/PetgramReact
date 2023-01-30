@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import { PrivateRoute } from '@routes/PrivateRoute'
-import GlobalStyles from '@styles/globalStyles'
+import GlobalStyles from '@styles/GlobalStyles'
 
 const Layout = React.lazy(() => import('@containers/Layout'))
 const Home = React.lazy(() => import('@views/Home'))
