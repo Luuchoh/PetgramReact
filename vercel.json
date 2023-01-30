@@ -9,7 +9,11 @@
       "src": "(.*).json", "dest": "$1.js" 
     },
     {
+    "src": "(.*).png", "dest": "$1.png"
+    },
+    {
     "src": "/.*", "dest": "index.html" 
     }
+
   ]
 }
