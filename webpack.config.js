@@ -53,7 +53,7 @@ module.exports = {
       theme_color: '#4774F4',
       icons: [
         {
-          src: path.resolve('src/Assets/icon.avif'),
+          src: path.resolve('src/assets/icon.avif'),
           sizes: [96, 128, 192, 256, 384, 512],
           purpose: 'maskable'
         }
