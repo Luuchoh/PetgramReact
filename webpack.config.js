@@ -10,7 +10,17 @@ module.exports = {
     filename: '[name].[contenthash].js'
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      '@assets': path.resolve(__dirname, 'src/assets/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@containers': path.resolve(__dirname, 'src/containers/'),
+      '@context': path.resolve(__dirname, 'src/context/'),
+      '@hooks': path.resolve(__dirname, 'src/hooks/'),
+      '@routes': path.resolve(__dirname, 'src/routes/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@views': path.resolve(__dirname, 'src/views/')
+    }
   },
   module: {
     rules: [

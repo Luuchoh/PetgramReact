@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { useGetPhotos } from '../../hooks/usePhotos'
-import { PhotoCard } from '../../components/PhotoCard'
-import { PhotoCardSkeleton } from '../../components/Skeletons/PhotoCardSkeleton'
+import { useGetPhotos } from '@hooks/usePhotos'
+import { PhotoCard } from '@components/PhotoCard'
+import { PhotoCardSkeleton } from '@components/Skeletons/PhotoCardSkeleton'
 
 export const ListOfPhotoCards = React.memo(({ category = '' }) => {
   const { data, loading } = useGetPhotos(category)

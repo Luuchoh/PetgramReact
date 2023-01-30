@@ -1,6 +1,7 @@
 import React from 'react'
-import Helmet from '../../components/Helmet'
-import ListOfFavorites from '../../containers/ListOfFavorites'
+
+import Helmet from '@components/Helmet'
+import ListOfFavorites from '@containers/ListOfFavorites'
 
 const Favs = () => {
   return (

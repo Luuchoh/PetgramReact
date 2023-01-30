@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-indent */
 import React, { useContext } from 'react'
 
-import { AppContext } from '../../context/AppProvider'
-import { useGetUser } from '../../hooks/useUsers'
-import { Button, Container, Img, Paragraph, Title, WrapperImg, WrapperInfo } from './style'
+import { AppContext } from '@context/AppProvider'
+import { useGetUser } from '@hooks/useUsers'
+import { Button, Container, Img, Paragraph, Title, WrapperImg, WrapperInfo } from '@containers/UserProfile/style'
 
 const UserProfile = () => {
   const { removeAuth } = useContext(AppContext)

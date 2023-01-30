@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { ApolloClient, ApolloLink, ApolloProvider, from, HttpLink, InMemoryCache } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 
-import App from './routes/App'
-import AppProvider from './context/AppProvider'
+import App from '@routes/App'
+import AppProvider from '@context/AppProvider'
 
 const httpLink = new HttpLink({ uri: 'http://localhost:3500/graphql' })
 

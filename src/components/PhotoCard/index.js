@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineQuestionCircle } from 'react-icons/ai'
 
-import { useNearScreen } from '../../hooks/useNearScreen'
-import { useMutationToggleLike } from '../../hooks/usePhotos'
-import LikeButton from '../LikeButton'
-import { Article, ButtonsWrapper, ContainerToggle, Img, ImgWrapper, Toggle, Link as LinkT } from './style'
+import { useNearScreen } from '@hooks/useNearScreen'
+import { useMutationToggleLike } from '@hooks/usePhotos'
+import LikeButton from '@components/LikeButton'
+import { Article, ButtonsWrapper, ContainerToggle, Img, ImgWrapper, Toggle, Link as LinkT } from '@components/PhotoCard/style'
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_fishes.jpg'
 

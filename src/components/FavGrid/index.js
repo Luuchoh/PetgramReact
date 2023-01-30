@@ -1,5 +1,6 @@
 import React from 'react'
-import { Image, Link } from './style'
+
+import { Image, Link } from '@components/FavGrid/style'
 
 const FavGrid = ({ id, src }) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { AiOutlineHeart } from 'react-icons/ai'
-import { Button, Img, ImgWrapper } from './style'
+
+import { Button, Img, ImgWrapper } from '@components/Skeletons/PhotoCardSkeleton/style'
 
 export const PhotoCardSkeleton = () => {
   return (

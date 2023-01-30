@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { AiFillHeart, AiFillHome, AiOutlineUser } from 'react-icons/ai'
-import { Link, Nav } from './style'
+
+import { Link, Nav } from '@components/Navbar/style'
 
 const SIZE = '28px'
 

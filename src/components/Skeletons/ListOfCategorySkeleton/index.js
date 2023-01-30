@@ -1,5 +1,6 @@
 import React from 'react'
-import { ContainerCategorySkeleton, CategoryImage, CategoryTitle } from './style'
+
+import { ContainerCategorySkeleton, CategoryImage, CategoryTitle } from '@components/Skeletons/ListOfCategorySkeleton/style'
 
 export const ListOfCategoriesSkeleton = () => {
   return (
